@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEST</title>
+  <style>
+    .test {
+      color: blue;
+    }
+    .test::before {
+      content: "TEST-FOOTNOTE";
+      float: footnote;
+    }
+    h1 {
+      background: lime;
+      line-height: 10em;
+      break-after: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>TEST</h1>
+  <div>
+    <span class="test">TEST-SPAN</span>some text some text some text some text some text some text some text some text some text some text some text.
+  </div>
+</body>
+</html>
