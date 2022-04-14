@@ -1,0 +1,348 @@
+@charset "UTF-8";
+/*
+// A5 13q 33字x29行
+$page-size: A5;
+$page-width: 148mm;
+$page-height: 210mm;
+$page-margin-top: 20.375mm;
+$page-margin-side: 20.375mm;
+$page-margin-bottom: 20.375mm;
+$page-header-font-size: 9q;
+$page-footer-font-size: 11q;
+$page-header-margin: 20q;
+$page-footer-margin: 20q;
+$body-font-size: 13q;
+$body-line-height: 22px;
+$h1-font-size: 26q;
+$h2-font-size: 15q;
+$h3-font-size: 13q;
+$figcaption-font-size: 11q;
+*/
+/*
+// JIS-B5 16q 33字x29行
+$page-size: JIS-B5;
+$page-width: 182mm;
+$page-height: 257mm;
+$page-margin-top: 25mm;
+$page-margin-side: 25mm;
+$page-margin-bottom: 25mm;
+$page-header-font-size: 11q;
+$page-footer-font-size: 13.5q;
+$page-header-margin: 24.5q;
+$page-footer-margin: 24.5q;
+$body-font-size: 16q;
+$body-line-height: 27px;
+$h1-font-size: 32q;
+$h2-font-size: 18.5q;
+$h3-font-size: 16q;
+$figcaption-font-size: 13.5q;
+*/
+@page {
+  size: 559.37px 793.701px;
+  margin: 63.3505px 71.685px 63.3505px;
+  font-family: DFUDMinchoJP13N-W2, serif;
+  line-height: 1;
+  @bottom-center {
+    font-size: 11px;
+    content: "- " counter(page) " -";
+    margin-top: 20q;
+    vertical-align: top;
+  }
+}
+@page :left {
+  @top-left {
+    content: string(chap-title, first);
+    font-size: 11px;
+    margin-left: 13px;
+    margin-bottom: 20q;
+    vertical-align: bottom;
+  }
+}
+@page :right {
+  @top-right {
+    content: string(sect-title, first);
+    font-size: 11px;
+    margin-right: 13px;
+    margin-bottom: 20q;
+    vertical-align: bottom;
+  }
+}
+html {
+  font-family: Times, DFUDMinchoJP13N-W2, serif;
+  font-size: 13px;
+  line-height: 23px;
+  text-align: justify;
+  widows: 1;
+  orphans: 1;
+  text-spacing: trim-start trim-end trim-adjacent;
+}
+
+p {
+  text-indent: 1em;
+  hanging-punctuation: first allow-end;
+  margin: 0;
+}
+
+/* 文字間をわずかに詰めたい／開けたい */
+.justify-compress {
+  letter-spacing: -0.02em;
+}
+
+.justify-space {
+  letter-spacing: 0.005em;
+}
+
+/* 改ページのためのクラス定義 */
+.break-before {
+  break-before: page;
+}
+
+.break-after {
+  break-after: page;
+}
+
+/* 改丁 */
+.break-recto {
+  break-before: recto !important;
+}
+
+.break-verso {
+  break-before: verso !important;
+}
+
+/* 章で改丁 */
+.chapter {
+  break-before: recto;
+}
+
+/* 章の柱 */
+/* 章を複数ファイルに分けている場合、各ファイルの最初の節見出しに属性 data-chap-title で章タイトルを入れること */
+[data-chap-title] {
+  string-set: chap-title attr(data-chap-title);
+}
+
+/* 節の柱 */
+[data-sect-title] {
+  string-set: sect-title attr(data-sect-title);
+}
+
+[data-chap-title][data-sect-title] {
+  string-set: chap-title attr(data-chap-title), sect-title attr(data-sect-title);
+}
+
+h1 {
+  font-family: "DFKaiShoStd-W5";
+  font-feature-settings: "palt";
+  font-size: 24.5px;
+  line-height: 1.5;
+  text-align: center;
+  margin-top: -0.25em;
+  break-before: page;
+}
+h1 > .chapno {
+  font-weight: 500;
+  display: block;
+}
+h1 > .period {
+  font-size: 69%;
+  font-weight: 500;
+  line-height: 1.73;
+  display: block;
+}
+
+h2 {
+  font-family: "Helvetica", "DFKingGothicJP16N-Semibold";
+  font-feature-settings: "palt";
+  font-size: 14px;
+  line-height: 23px;
+  text-align: start;
+  word-break: keep-all;
+  margin-block-start: 0;
+  padding-block-start: 11.5px;
+  margin-block-end: 11.5px;
+}
+
+.chap-foreword {
+  break-before: page;
+}
+
+h3 {
+  font-family: "Helvetica", "DFKingGothicJP16N-Medium";
+  font-feature-settings: "palt";
+  font-size: 13px;
+  line-height: 23px;
+  margin-block-start: 0;
+  padding-block-start: 11.5px;
+  margin-block-end: 11.5px;
+}
+
+/* コラム */
+section.column1 {
+  font-family: "DFKingGothicJP16N-Thin";
+}
+
+b,
+strong {
+  font-family: "DFKingGothicJP16N-Medium";
+}
+
+a[href] {
+  text-decoration: none;
+}
+
+.noindent,
+.noindent p {
+  text-indent: 0;
+}
+
+/* Front Matter */
+#foreword,
+#toc {
+  break-before: page;
+}
+
+/* TOC */
+nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+nav ul ul {
+  padding-left: 1em;
+}
+
+nav li a {
+  display: inline-flex;
+  width: 100%;
+  align-items: baseline;
+  color: currentColor;
+  font-family: Helvetica, DFKingGothicJP16N-Light, sans-serif;
+  font-feature-settings: "palt";
+}
+
+nav li a::before {
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  margin-bottom: 0.5em;
+  border-bottom: dotted 1px gray;
+  content: "";
+  order: 1;
+  align-self: flex-end;
+  flex: auto;
+}
+
+nav li a::after {
+  text-align: right;
+  content: target-counter(attr(href url), page);
+  align-self: flex-end;
+  flex: none;
+  order: 2;
+}
+
+nav li strong {
+  font-family: Helvetica, DFKingGothicJP16N-Light, sans-serif;
+  font-feature-settings: "palt";
+}
+
+nav li .period {
+  font-size: 80%;
+}
+
+/* Back Matter */
+#colophon {
+  break-before: page;
+}
+
+/* Photo */
+/* top float */
+.photo-top {
+  float-reference: page;
+  float: top;
+  margin-bottom: 1em;
+}
+
+/* bottom float */
+.photo-bottom {
+  float-reference: page;
+  float: bottom;
+  margin-top: 1em;
+}
+
+/* one photo */
+.photo1 {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  break-inside: avoid;
+}
+
+/* 直前で改ページし、1つのphotoをtopに配置し、直後に改ページ */
+.photo1-break {
+  break-before: page;
+  break-after: page;
+  break-inside: avoid;
+}
+
+/* two photos */
+.photo2 {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  break-before: page;
+  break-inside: avoid;
+}
+
+/* two photos float*/
+.photo2-float {
+  float-reference: page;
+  float: top;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  break-inside: avoid;
+}
+
+/* 2つの写真を横に配置*/
+.photo2-top {
+  float-reference: page;
+  float: top;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+figure {
+  text-align: center;
+  line-height: 1;
+  margin: 0;
+  break-inside: avoid;
+}
+
+img[src*="/photo"] {
+  max-width: 100%;
+  max-height: 47vh;
+}
+
+figcaption {
+  font-family: Helvetica, DFKingGothicJP16N-Light, sans-serif;
+  font-feature-settings: "palt";
+  font-size: 11px;
+  line-height: 1.5;
+  margin-block-start: 0.1em;
+}
+
+/* 署名・日付 */
+.signature {
+  text-align: right;
+  margin-block-start: 23px;
+  break-inside: avoid;
+}
+
+/* タイトル字間ツメ */
+.h-compress:not(section) {
+  letter-spacing: -0.01em;
+}
+
+/*# sourceMappingURL=theme.css.map */
