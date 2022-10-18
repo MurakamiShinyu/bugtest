@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!-- from https://developer.mozilla.org/en-US/docs/Web/CSS/:has -->
+<style>
+h1, h2 {
+  margin: 0 0 1.0rem 0;
+}
+
+h1:has(+ h2) {
+  margin: 0 0 0.25rem 0;
+}
+</style>
+<section>
+  <article>
+    <h1>Morning Times</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </article>
+  <article>
+    <h1>Morning Times</h1>
+    <h2>Delivering you news every morning</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </article>
+</section>
