@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>text-width-problem</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP');
+    p {
+      width: 10em;
+      font-family: "Noto Sans JP", sans-serif;
+      background: yellow;
+    }
+  </style>
+</head>
+<body>
+  <p>一二三四五六七八九十</p>
+  <p>一二三四<span>五</span>六七八九十</p>
+  <p>一二三四五<span></span>六七八九十</p>
+  <p>一二三四五<wbr>六七八九十</p>
+  <p>一二三四五<!-- -->六七八九十</p>
+</body>
+</html>
