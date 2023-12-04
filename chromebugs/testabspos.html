@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    @page {
+      size: 500px 500px;
+      margin: 0;
+    }
+
+    body {
+      margin: 0px;
+    }
+
+    .container {
+      position: relative;
+      overflow: hidden;
+      width: 500px;
+      height: 500px;
+      background: aqua;
+    }
+
+    .box1,
+    .box2,
+    .box3,
+    .box4 {
+      position: absolute;
+      left: 100px;
+      height: 80px;
+      background: yellow;
+      border: solid;
+    }
+
+    .box1 {
+      top: 50px;
+    }
+
+    .box2 {
+      top: 150px;
+    }
+
+    .box3 {
+      top: 250px;
+      writing-mode: vertical-rl;
+    }
+
+    .box4 {
+      top: 350px;
+      writing-mode: vertical-rl;
+    }
+
+    .tcu {
+      text-combine-upright: all;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box1">
+      Box 1:<br>Text
+    </div>
+    <div class="box2">
+      Box 2:<br><ruby>RUBY<rt>RT</rt></ruby>
+    </div>
+    <div class="box3">
+      Box 3: Text
+    </div>
+    <div class="box4">
+      Box 4: <span class="tcu">TCU</span>
+    </div>
+  </div>
+</body>
+
+</html>
