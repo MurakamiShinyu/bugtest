@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>counters() test</title>
+<style>
+div {
+  margin-left: 1em;
+  counter-increment: item;
+}
+div:first-of-type {
+  counter-reset: item;
+}
+div::before {
+  content: counters(item, ".") " ";
+}
+</style>
+</head>
+<body>
+  <div>item
+    <div>item</div>
+    <div>item
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+    </div>
+    <div>item</div>
+  </div>
+  <div>item</div>
+</body>
+</html>
