@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nested sections and counters() test</title>
+<style>
+section {
+  counter-increment: section;
+  margin-inline-start: 1em;
+}
+section:first-of-type {
+  counter-reset: section;
+}
+section > :is(h1,h2,h3,h4,h5,h6):first-child::before {
+  content: counters(section, ".") " ";
+}
+</style>
+</head>
+<body>
+  <section>
+    <h1>Section Level 1</h1>
+    <section>
+      <h2>Section Level 2</h2>
+    </section>
+    <section>
+      <h2>Section Level 2, 2nd</h2>
+      <section>
+        <h3>Section Level 3</h3>
+      </section>
+      <section>
+        <h3>Section Level 3, 2nd</h3>
+      </section>
+      <section>
+        <h3>Section Level 3, 3rd</h3>
+      </section>
+    </section>
+    <section>
+      <h2>Section Level 2, 3rd</h2>
+    </section>
+  </section>
+  <section>
+    <h1>Section Level 1, 2nd</h1>
+  </section>
+</body>
+</html>
