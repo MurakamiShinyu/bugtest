@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>text-wrap-style and floats test</title>
+<style>
+body {
+  font: 16px/18px monospace;
+  width: 40ch;
+}
+p {
+  margin: 0;
+}
+.test {
+  width: 20ch;
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+  background: beige;
+}
+.balance {
+  text-wrap-style: balance;
+}
+.pretty {
+  text-wrap-style: pretty;
+}
+.float {
+  float: right;
+  clear: right;
+  text-align: center;
+}
+.tall {
+  width: 7ch;
+  height: 11lh;
+  background: aqua;
+}
+.wide {
+  width: 14ch;
+  height: 2lh;
+  background: lightgreen;
+}
+</style>
+</head>
+<body>
+  <div class="test">
+    <p>-- default --</p>
+    <p>The quick brown fox jumps over the lazy dog.</p>
+  </div>
+  <div class="test balance">
+    <p>-- balance --</p>
+    <p>The quick brown fox jumps over the lazy dog.</p>
+  </div>
+  <div class="test pretty">
+    <p>-- pretty --</p>
+    <p>The quick brown fox jumps over the lazy dog.</p>
+  </div>
+  <p>Here are two float boxes.</p>
+  <div class="float tall">Float box 1</div>
+  <div class="float wide">Float box 2</div>
+  <div class="test balance">
+    <p>-- balance --</p>
+    <p>The quick brown fox jumps over the lazy dog.</p>
+  </div>
+  <div class="test pretty">
+    <p>-- pretty --</p>
+    <p>The quick brown fox jumps over the lazy dog.</p>
+  </div>
+  <div class="test balance">
+    <p>-- balance --</p>
+    <p>The quick brown fox jumps over the lazy dog.</p>
+  </div>
+  <div class="test pretty">
+    <p>-- pretty --</p>
+    <p>The quick brown fox jumps over the lazy dog.</p>
+  </div>
+</body> 
+</html>
