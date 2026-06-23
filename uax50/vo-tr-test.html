@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>縦書きテスト</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap');
+
+      body {
+        font-family: 'Noto Serif JP', serif;
+      }
+
+      .h,
+      .v {
+        inline-size: 10em;
+        block-size: 6em;
+      }
+
+      .v {
+        writing-mode: vertical-rl;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="h">「横書きだぁ〰〰。」<br>“Double &amp; ‘single’ quotes.”</div>
+    <div class="v">「縦書きだぁ〰〰。」<br>“Double &amp; ‘single’ quotes.”</div>
+  </body>
+</html>
